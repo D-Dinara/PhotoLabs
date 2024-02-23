@@ -4,7 +4,7 @@ import "../styles/PhotoListItem.scss";
 
 
 const PhotoListItem = (props) => {
-  const { username, imageSource, id, location, profile } = props.sampleDataForPhotoListItem;
+  const { username, imageSource, id, location, profile } = props.photo;
   return (
     <div key={id}>
       <img src={imageSource} alt="Photo" />
