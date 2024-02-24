@@ -2,6 +2,7 @@ import React from 'react';
 
 import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
+import './styles/PhotoList.scss'
 
 
 const sampleDataForPhotoListItem = {
@@ -21,9 +22,11 @@ const App = () => {
   
   return (
     <div className="App">
-      {photos.map((item, index) => {
-        return <PhotoListItem key={index} photo={sampleDataForPhotoListItem}/>
-      })}
+      <div className="photo-list">
+        {photos.map((item, index) => {
+          return <PhotoListItem key={index} photo={sampleDataForPhotoListItem}/>
+        })}
+      </div>
     </div>
   );
 };
