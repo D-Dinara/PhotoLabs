@@ -3,15 +3,13 @@ import React, { useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ photoId, photos, setFavPhotos }) {
-  const [selected, setSelected] = useState(false);
+function PhotoFavButton({ photoId, favPhotos, setFavPhotos }) {
+  const selected = favPhotos.includes(photoId) ? true : false;
 
   const handleClick = () => {
-    setSelected(prevSelected => !prevSelected);
-    const photo = photos.find(photo => photoId === photo.id)
       setFavPhotos(prevFavPhotos => {
-        if (!prevFavPhotos.includes(photo.id)) {
-          return [...prevFavPhotos, photo.id];
+        if (!prevFavPhotos.includes(photoId)) {
+          return [...prevFavPhotos, photoId];
         } else {
           return prevFavPhotos.filter(id => id !== photoId);
         }

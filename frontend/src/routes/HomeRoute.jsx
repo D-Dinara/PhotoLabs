@@ -10,7 +10,7 @@ const HomeRoute = ({ topics, photos }) => {
   return (
     <div className="home-route">
       <TopNavigation topics={topics} favPhotos={favPhotos} />
-      <PhotoList photos={photos} setFavPhotos={setFavPhotos} />
+      <PhotoList photos={photos} favPhotos={favPhotos} setFavPhotos={setFavPhotos} />
     </div>
   );
 };
