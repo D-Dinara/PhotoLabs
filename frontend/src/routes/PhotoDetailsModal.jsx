@@ -10,7 +10,7 @@ const PhotoDetailsModal = ({ favPhotos, setFavPhotos, displayModal, setDisplayMo
   const closeModal = () => {
     setDisplayModal({showModal: false, photoDetails: {}});
   }
-  const { urls, location, user, similar_photos } = displayModal.photoDetails;
+  const { urls, location, user, similar_photos } = displayModal.photoDetails || {};
   const photos = Object.values(similar_photos);
   console.log(photos)
 
