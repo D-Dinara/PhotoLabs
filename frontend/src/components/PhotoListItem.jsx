@@ -3,9 +3,10 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-  const { urls, id, location, user } = props.photo;
+  const { urls, id, location, user, similar_photos } = props.photo;
   const showModal = () => {
     props.setDisplayModal(true);
+    console.log(urls.full, user.profile, user.username, location.city, location.country, similar_photos)
   }
 
   return (
