@@ -3,15 +3,16 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-  const { urls, id, location, user } = props.photo;
+  const { urls, id, location, user, similar_photos } = props.photo;
   const showModal = () => {
     props.setDisplayModal({
       showModal: true, 
       photoDetails: {
-        "id": id,
-        "location": location,
-        "urls": urls,
-        "user": user
+        id: id,
+        location: location,
+        urls: urls,
+        user: user,
+        similar_photos: similar_photos
       }
     });
   }
@@ -24,7 +25,7 @@ const PhotoListItem = (props) => {
       <div className="photo-list__user-details">
         <img src={user.profile} alt="Profile" className="photo-list__user-profile"/>
         <div className="photo-list__user-info">
-          <p>{user.username}</p>
+          <p>{user.name}</p>
           <p className="photo-list__user-location ">{location.city}, {location.country}</p>
         </div>
       </div>
