@@ -3,9 +3,10 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({ setDisplayModal }) => {
+const PhotoDetailsModal = ({ displayModal, setDisplayModal }) => {
+  console.log(displayModal)
 const closeModal = () => {
-  setDisplayModal(false);
+  setDisplayModal({showModal: false, photoDetails: {}});
 }
 
   return (
