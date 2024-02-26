@@ -5,7 +5,7 @@ import FavBadge from './FavBadge';
 
 const TopNavigation = ({ topics, favPhotos }) => {
  const isFavPhotoExist = favPhotos.length > 0 ? true : false;
- 
+
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>

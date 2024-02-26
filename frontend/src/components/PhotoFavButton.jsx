@@ -9,11 +9,13 @@ function PhotoFavButton({ photoId, photos, setFavPhotos }) {
   const handleClick = () => {
     setSelected(prevSelected => !prevSelected);
     const photo = photos.find(photo => photoId === photo.id)
-    if (!selected) {
-      setFavPhotos(prevFavPhotos => prevFavPhotos = [...prevFavPhotos, photo])
-    } else {
-      setFavPhotos(prevFavPhotos => prevFavPhotos = prevFavPhotos.filter(photo => photo.id !== photoId))
-    }
+      setFavPhotos(prevFavPhotos => {
+        if (!prevFavPhotos.includes(photo.id)) {
+          return [...prevFavPhotos, photo.id];
+        } else {
+          return prevFavPhotos.filter(id => id !== photoId);
+        }
+      }) 
   }
 
   return (
