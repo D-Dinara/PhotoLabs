@@ -5,14 +5,12 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 
-const PhotoDetailsModal = ({ favPhotos, setFavPhotos, displayModal, setDisplayModal }) => {
-  console.log(displayModal)
+const PhotoDetailsModal = ({ favPhotos, toggleFavPhoto, displayModal, setDisplayModal }) => {
   const closeModal = () => {
     setDisplayModal({showModal: false, photoDetails: {}});
   }
   const { urls, location, user, similar_photos } = displayModal.photoDetails || {};
   const photos = Object.values(similar_photos);
-  console.log(photos)
 
   return (
     <div className="photo-details-modal">
@@ -31,7 +29,7 @@ const PhotoDetailsModal = ({ favPhotos, setFavPhotos, displayModal, setDisplayMo
           </div>
           <h2 className='photo-details-modal__header'>Similar Photos</h2>
           <div className='photo-details-modal__top-bar'>
-            <PhotoList photos={photos} favPhotos={favPhotos} setFavPhotos={setFavPhotos} />
+            <PhotoList photos={photos} favPhotos={favPhotos} toggleFavPhoto={toggleFavPhoto} />
           </div>
         </div> 
       </div>
