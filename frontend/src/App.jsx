@@ -13,7 +13,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} setModal={setModal} />
-      {modal && <PhotoDetailsModal />}
+      {modal && <PhotoDetailsModal setModal={setModal} />}
     </div>
   );
 };
