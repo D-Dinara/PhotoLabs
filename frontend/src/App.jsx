@@ -9,7 +9,7 @@ import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const { state, toggleFavPhoto, toggleModal } = useApplicationData();
+  const { state, updateFavPhotos, toggleModal } = useApplicationData();
   const { favPhotos, displayModal } = state;
 
   return (
@@ -18,13 +18,13 @@ const App = () => {
         topics={topics} 
         photos={photos} 
         favPhotos={favPhotos} 
-        toggleFavPhoto={toggleFavPhoto}
+        updateFavPhotos={updateFavPhotos}
         toggleModal={toggleModal} 
       />
       {displayModal.showModal && 
       <PhotoDetailsModal 
         favPhotos={favPhotos}
-        toggleFavPhoto={toggleFavPhoto}
+        updateFavPhotos={updateFavPhotos}
         displayModal={displayModal} 
         toggleModal={toggleModal} 
       />}

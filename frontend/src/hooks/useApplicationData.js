@@ -13,7 +13,7 @@ const useApplicationData = () => {
  * @param {*} photoId - The ID of the photo to toggle the favorite status.
  */
 
-  const toggleFavPhoto = (photoId) => {
+  const updateFavPhotos = (photoId) => {
     setFavPhotos(prevFavPhotos => {
       if (!prevFavPhotos.includes(photoId)) {
         return [...prevFavPhotos, photoId];
@@ -38,7 +38,7 @@ const useApplicationData = () => {
 
   return ({
     state: { favPhotos, displayModal },
-    toggleFavPhoto: toggleFavPhoto,
+    updateFavPhotos: updateFavPhotos,
     toggleModal: toggleModal,
   })
 }
