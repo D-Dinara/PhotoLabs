@@ -15,7 +15,6 @@ const App = () => {
   });
 
   const toggleFavPhoto = (photoId) => {
-    console.log(photoId)
     setFavPhotos(prevFavPhotos => {
       if (!prevFavPhotos.includes(photoId)) {
         return [...prevFavPhotos, photoId];
@@ -25,22 +24,28 @@ const App = () => {
     }) 
 }
 
+  const toggleModal = (showModal, photoDetails) => {
+    setDisplayModal({
+      showModal: showModal, 
+      photoDetails: photoDetails
+    });
+  }
+
   return (
     <div className="App">
       <HomeRoute 
         topics={topics} 
         photos={photos} 
         favPhotos={favPhotos} 
-        setFavPhotos={setFavPhotos} 
         toggleFavPhoto={toggleFavPhoto}
-        setDisplayModal={setDisplayModal} 
+        toggleModal={toggleModal} 
       />
       {displayModal.showModal && 
       <PhotoDetailsModal 
         favPhotos={favPhotos}
         toggleFavPhoto={toggleFavPhoto}
         displayModal={displayModal} 
-        setDisplayModal={setDisplayModal} 
+        toggleModal={toggleModal} 
       />}
     </div>
   );

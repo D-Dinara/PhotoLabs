@@ -4,17 +4,16 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
   const { urls, id, location, user, similar_photos } = props.photo;
+  const photoDetails = {
+    id: id,
+    location: location,
+    urls: urls,
+    user: user,
+    similar_photos: similar_photos
+  }
+
   const showModal = () => {
-    props.setDisplayModal({
-      showModal: true, 
-      photoDetails: {
-        id: id,
-        location: location,
-        urls: urls,
-        user: user,
-        similar_photos: similar_photos
-      }
-    });
+    props.toggleModal(true, photoDetails);
   }
  
   return (
