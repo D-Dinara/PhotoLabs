@@ -15,10 +15,12 @@ const PhotoListItem = (props) => {
   const showModal = () => {
     props.toggleModal(true, photoDetails);
   }
+
+  const selected = props.favPhotos.includes(id) ? true : false;
  
   return (
     <div className="photo-list__item">
-      <PhotoFavButton photoId={id} favPhotos={props.favPhotos} updateFavPhotos={props.updateFavPhotos} />
+      <PhotoFavButton photoId={id} updateFavPhotos={props.updateFavPhotos} selected={selected} />
       <img onClick={showModal} src={urls.regular} alt="Photo" className="photo-list__image" />
     
       <div className="photo-list__user-details">
