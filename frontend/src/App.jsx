@@ -14,6 +14,12 @@ const App = () => {
     photoDetails: {} 
   });
 
+/**
+ * Toggles the favorite status of a photo.
+ * 
+ * @param {*} photoId - The ID of the photo to toggle the favorite status.
+ */
+
   const toggleFavPhoto = (photoId) => {
     setFavPhotos(prevFavPhotos => {
       if (!prevFavPhotos.includes(photoId)) {
@@ -24,6 +30,12 @@ const App = () => {
     }) 
 }
 
+/**
+ * Toggles the modal display.
+ * 
+ * @param {boolean} showModal - Indicates whether the modal should be displayed or hidden.
+ * @param {object} photoDetails - Details of the photo to be displayed in the modal.
+ */
   const toggleModal = (showModal, photoDetails) => {
     setDisplayModal({
       showModal: showModal, 
