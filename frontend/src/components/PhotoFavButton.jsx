@@ -7,9 +7,9 @@ function PhotoFavButton({ photoId, favPhotos, toggleFavPhoto }) {
   const selected = favPhotos.includes(photoId) ? true : false;
 
   return (
-    <div className="photo-list__fav-icon">
+    <div className="photo-list__fav-icon" onClick={() => toggleFavPhoto(photoId)}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon handleClick={toggleFavPhoto} photoId={photoId} selected={selected} />
+        <FavIcon selected={selected} />
       </div>
     </div>
   );
