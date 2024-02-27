@@ -16,7 +16,7 @@ const PhotoListItem = (props) => {
     props.toggleModal(true, photoDetails);
   }
 
-  const selected = props.favPhotos.includes(id) ? true : false;
+  const selected = props.favPhotos.includes(id);
  
   return (
     <div className="photo-list__item">
