@@ -3,13 +3,14 @@ import React from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
+import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleModal }) => {
   const closeModal = () => {
     toggleModal(false, {});
   }
-  const { urls, location, user, similar_photos } = displayModal.photoDetails || {};
+  const { id, urls, location, user, similar_photos } = displayModal.photoDetails || {};
   const photos = Object.values(similar_photos);
 
   return (
@@ -18,7 +19,8 @@ const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleMod
         <img src={closeSymbol} alt="close symbol" />
       </button>
       <div className="photo-details-modal__top-bar">
-        <div className="">
+        <div>
+        <PhotoFavButton photoId={id} updateFavPhotos={updateFavPhotos} favPhotos={favPhotos} />
           <img src={urls.full} alt="Photo" className="photo-details-modal__image" />
           <div className="photo-details-modal__photographer-details">
             <img src={user.profile} alt="Profile" className="photo-details-modal__photographer-profile"/>
