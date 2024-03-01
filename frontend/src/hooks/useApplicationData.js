@@ -53,17 +53,23 @@ const reducer = (state, action) => {
 const useApplicationData = () => {
    // Initialize state and dispatch function using useReducer
   const [state, dispatch] = useReducer(reducer, initialState);
-  
+
   useEffect(() => {
     fetch('/api/photos')
     .then((response) => response.json())
     .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+    .catch((error) => {
+      console.error('Error:', error);
+    })
   }, [])
 
   useEffect(() => {
     fetch('/api/topics')
     .then((response) => response.json())
     .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+    .catch((error) => {
+      console.error('Error:', error);
+    })
   }, [])
 
   /**
