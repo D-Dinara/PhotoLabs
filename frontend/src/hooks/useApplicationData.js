@@ -55,22 +55,18 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    fetch('/api/photos')
-    .then((response) => response.json())
-    .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+    Promise.all([
+      fetch('/api/photos').then(response => response.json()),
+      fetch('/api/topics').then(response => response.json())
+    ])
+    .then(([photoData, topicData]) => {
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
+      dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
+    })
     .catch((error) => {
       console.error('Error:', error);
-    })
-  }, [])
-
-  useEffect(() => {
-    fetch('/api/topics')
-    .then((response) => response.json())
-    .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
-    .catch((error) => {
-      console.error('Error:', error);
-    })
-  }, [])
+    });
+  }, []);
 
   /**
  * Toggles the favorite status of a photo.
