@@ -1,7 +1,9 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
 
 // Define the initial state of the application
 const initialState = {
+  photoData: [],
+  topicData: [],
   favPhotos: [],
   displayModal: {
     showModal: false,
@@ -12,7 +14,9 @@ const initialState = {
 // Define action types for updating favorite photos and toggling the modal
 const ACTIONS = {
   UPDATE_FAV_PHOTOS: 'UPDATE_FAV_PHOTOS',
-  TOGGLE_MODAL: 'TOGGLE_MODAL'
+  TOGGLE_MODAL: 'TOGGLE_MODAL',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA'
 };
 
 // Reducer function to handle state updates based on dispatched actions
@@ -34,6 +38,10 @@ const reducer = (state, action) => {
           photoDetails: action.payload.photoDetails
         }
       };
+      case ACTIONS.SET_PHOTO_DATA:
+        return { ...state, photoData: action.payload };
+      case ACTIONS.SET_TOPIC_DATA:
+        return { ...state, topicData: action.payload };
     default:
        // Throw an error for unsupported action types
       throw new Error(
@@ -45,6 +53,18 @@ const reducer = (state, action) => {
 const useApplicationData = () => {
    // Initialize state and dispatch function using useReducer
   const [state, dispatch] = useReducer(reducer, initialState);
+  
+  useEffect(() => {
+    fetch('/api/photos')
+    .then((response) => response.json())
+    .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+  }, [])
+
+  useEffect(() => {
+    fetch('/api/topics')
+    .then((response) => response.json())
+    .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+  }, [])
 
   /**
  * Toggles the favorite status of a photo.
