@@ -6,7 +6,15 @@ const PhotoList = ({ photos, favPhotos, updateFavPhotos, toggleModal }) => {
   
   return (
     <ul className="photo-list">
-      {photos.map((photo) => <PhotoListItem key={photo.id} photo={photo} favPhotos={favPhotos} updateFavPhotos={updateFavPhotos} toggleModal={toggleModal} />) }
+      {photos.map((photo) => 
+        <PhotoListItem 
+          key={photo.id} 
+          photo={photo} 
+          favPhotos={favPhotos} 
+          updateFavPhotos={updateFavPhotos} 
+          toggleModal={toggleModal} 
+        />
+      )}
     </ul>
   );
 };

@@ -26,7 +26,11 @@ const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleMod
       </button>
       <div className="photo-details-modal__top-bar">
         <div>
-          <PhotoFavButton photoId={id} updateFavPhotos={updateFavPhotos} favPhotos={favPhotos} />
+          <PhotoFavButton 
+            photoId={id} 
+            updateFavPhotos={updateFavPhotos} 
+            favPhotos={favPhotos} 
+          />
           <img src={urls.full} alt="Photo" className="photo-details-modal__image" />
           <div className="photo-details-modal__photographer-details">
             <img src={user.profile} alt="Profile" className="photo-details-modal__photographer-profile"/>
@@ -37,7 +41,11 @@ const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleMod
           </div>
           <h2 className='photo-details-modal__header'>Similar Photos</h2>
           <div className='photo-details-modal__top-bar'>
-            <PhotoList photos={photos} favPhotos={favPhotos} updateFavPhotos={updateFavPhotos} />
+            <PhotoList 
+              photos={photos} 
+              favPhotos={favPhotos} 
+              updateFavPhotos={updateFavPhotos} 
+            />
           </div>
         </div> 
       </div>

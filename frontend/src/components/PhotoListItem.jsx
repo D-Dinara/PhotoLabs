@@ -12,6 +12,7 @@ const PhotoListItem = (props) => {
     similar_photos: similar_photos
   }
 
+  // Function to display modal. Sets state of displayModal: sets showModal to true and provides photo details.
   const showModal = () => {
     props.toggleModal(true, photoDetails);
   }
@@ -19,7 +20,11 @@ const PhotoListItem = (props) => {
   
   return (
     <div className="photo-list__item">
-      <PhotoFavButton photoId={id} updateFavPhotos={props.updateFavPhotos} favPhotos={props.favPhotos} />
+      <PhotoFavButton 
+        photoId={id} 
+        updateFavPhotos={props.updateFavPhotos} 
+        favPhotos={props.favPhotos} 
+      />
       <img onClick={showModal} src={urls.regular} alt="Photo" className="photo-list__image" />
     
       <div className="photo-list__user-details">
