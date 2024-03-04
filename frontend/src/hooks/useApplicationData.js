@@ -9,7 +9,8 @@ const initialState = {
   displayModal: {
     showModal: false, // when set to false the modal is not displayed
     photoDetails: {} // details of the photo to display in the modal
-  }
+  },
+  displayFavPhotos: false,
 };
 
 // Define action types for updating favorite photos and toggling the modal
@@ -20,17 +21,20 @@ const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
   SET_ACTIVE_TOPIC: 'SET_ACTIVE_TOPIC',
+  DISPLAY_FAV_PHOTOS: 'DISPLAY_FAV_PHOTOS',
 };
 
 // Reducer function to handle state updates based on dispatched actions
 const reducer = (state, action) => {
   switch (action.type) {
     case ACTIONS.UPDATE_FAV_PHOTOS:
-       // Update favorite photos based on the dispatched action
-      if (!state.favPhotos.includes(action.payload)) {
+      const favPhoto = state.favPhotos.find(photo => photo.id === action.payload.id)
+
+       // Update favorite photos based on the dispatched action   
+      if (!favPhoto) {
         return { ...state, favPhotos: [...state.favPhotos, action.payload] };
       } else {
-        return { ...state, favPhotos: state.favPhotos.filter(id => id !== action.payload) };
+        return { ...state, favPhotos: state.favPhotos.filter(photo => photo.id !== action.payload.id) };
       }
     case ACTIONS.TOGGLE_MODAL:
       // Toggle modal display based on the dispatched action
@@ -48,7 +52,9 @@ const reducer = (state, action) => {
       case ACTIONS.GET_PHOTOS_BY_TOPICS:
         return { ...state, photoData: action.payload };
       case ACTIONS.SET_ACTIVE_TOPIC:
-        return { ...state, activeTopic: action.payload };
+        return { ...state, activeTopic: action.payload, displayFavPhotos: false };
+      case ACTIONS.DISPLAY_FAV_PHOTOS:
+        return { ...state, displayFavPhotos: action.payload, activeTopic: null };
     default:
        // Throw an error for unsupported action types
       throw new Error(
@@ -103,15 +109,15 @@ const useApplicationData = () => {
      fetchPhotos();
     }
   }, [state.activeTopic]);
-  
+
 
 /**
  * Updates the favorite photos array: adds or deletes the favorite photo
  * 
  * @param {*} photoId - The ID of the photo to toggle the favorite status.
 */
-  const updateFavPhotos = (photoId) => {
-    dispatch({ type: ACTIONS.UPDATE_FAV_PHOTOS, payload: photoId });
+  const updateFavPhotos = (photo) => {
+    dispatch({ type: ACTIONS.UPDATE_FAV_PHOTOS, payload: photo });
   };
 
 /**
@@ -134,12 +140,22 @@ const useApplicationData = () => {
     dispatch({ type: ACTIONS.SET_ACTIVE_TOPIC, payload: topicId })
   }
 
+  /**
+   * Displays favorite photos
+   * 
+   * @param {boolean} displayPhotos - Indicates whether the favorite photos should be displayed 
+  */
+  const showFavPhotos = () => {
+    dispatch({ type: ACTIONS.DISPLAY_FAV_PHOTOS, payload: true });
+  };
+
 
   return {
     state,
     updateFavPhotos,
     toggleModal,
     getPhotosByTopic,
+    showFavPhotos
   };
 };
 

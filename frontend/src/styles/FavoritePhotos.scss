@@ -1,0 +1,21 @@
+.favorite-photos {
+  max-width: 1200px;
+  margin: auto;
+  background-color: #F5F5F5;
+}
+
+.favorite-photos__heading {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+  color: #2b2b2b;
+
+  h3 {
+    margin-top: 20px;
+    padding: 0 20px;
+    background-color: white;
+    color: #858484;
+  }
+}
