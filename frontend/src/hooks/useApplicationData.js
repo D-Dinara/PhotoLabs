@@ -8,7 +8,7 @@ const initialState = {
   favPhotos: [], // liked photos 
   displayModal: {
     showModal: false, // when set to false the modal is not displayed
-    photoDetails: {} 
+    photoDetails: {} // details of the photo to display in the modal
   }
 };
 
@@ -79,7 +79,7 @@ const useApplicationData = () => {
 
   // Render topics on load
   useEffect(() => {
-      fetch('/api/topics').then(response => response.json())
+    fetch('/api/topics').then(response => response.json())
     .then((topicData) => {
       dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
     })
@@ -125,7 +125,6 @@ const useApplicationData = () => {
   };
 
  
-
 /**
  * Sets topic to render relevant photos 
  * 
