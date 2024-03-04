@@ -7,11 +7,17 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 
 const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleModal }) => {
+  
+  const { id, urls, location, user, similar_photos } = displayModal.photoDetails || {};
+
+  // Create an array of similar photos
+  const photos = Object.values(similar_photos);
+
+  //Function closes the modal
   const closeModal = () => {
+    //sets the displayModal to false and photoDetails to {}
     toggleModal(false, {});
   }
-  const { id, urls, location, user, similar_photos } = displayModal.photoDetails || {};
-  const photos = Object.values(similar_photos);
 
   return (
     <div className="photo-details-modal">
@@ -36,7 +42,6 @@ const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleMod
         </div> 
       </div>
     </div>
-
   )
 };
 

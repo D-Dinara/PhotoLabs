@@ -7,7 +7,7 @@ import useApplicationData from 'hooks/useApplicationData';
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const { state, updateFavPhotos, toggleModal, getPhotosByTopic, getAllPhotos } = useApplicationData();
+  const { state, updateFavPhotos, toggleModal, getPhotosByTopic } = useApplicationData();
   const { photoData, topicData, favPhotos, displayModal } = state;
 
   return (
@@ -19,7 +19,6 @@ const App = () => {
         updateFavPhotos={updateFavPhotos}
         toggleModal={toggleModal} 
         getPhotosByTopic={getPhotosByTopic}
-        getAllPhotos={getAllPhotos} 
       />
       {displayModal.showModal && 
       <PhotoDetailsModal 
