@@ -8,12 +8,13 @@ import useApplicationData from 'hooks/useApplicationData';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const { state, updateFavPhotos, toggleModal, getPhotosByTopic } = useApplicationData();
-  const { photoData, topicData, favPhotos, displayModal } = state;
+  const { photoData, topicData, activeTopic, favPhotos, displayModal } = state;
 
   return (
     <div className="App">
       <HomeRoute 
         topics={topicData} 
+        activeTopic={activeTopic}
         photos={photoData} 
         favPhotos={favPhotos} 
         updateFavPhotos={updateFavPhotos}

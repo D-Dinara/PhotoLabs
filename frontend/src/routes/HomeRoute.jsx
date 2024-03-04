@@ -4,13 +4,14 @@ import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
 
-const HomeRoute = ({ topics, photos, favPhotos, updateFavPhotos, toggleModal, getPhotosByTopic }) => {
+const HomeRoute = ({ topics, activeTopic, photos, favPhotos, updateFavPhotos, toggleModal, getPhotosByTopic }) => {
 
 
   return (
     <div className="home-route">
       <TopNavigation 
         topics={topics} 
+        activeTopic={activeTopic}
         favPhotos={favPhotos} 
         getPhotosByTopic={getPhotosByTopic}
       />

@@ -15,3 +15,14 @@
     color: #111;
   }
 }
+
+.topic-list__item-active span {
+  background-color: #2b2b2b;
+  color: white;
+  padding: 0 5px;
+
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}

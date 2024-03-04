@@ -2,20 +2,20 @@ import { useReducer, useEffect } from 'react';
 
 // Define the initial state of the application
 const initialState = {
-  photoData: [],
-  topicData: [],
-  activeTopic: null,
-  favPhotos: [],
+  photoData: [], 
+  topicData: [], // topics list in TopNavigationBar
+  activeTopic: null, // active topic id
+  favPhotos: [], // liked photos 
   displayModal: {
-    showModal: false,
-    photoDetails: {}
+    showModal: false, // when set to false the modal is not displayed
+    photoDetails: {} 
   }
 };
 
 // Define action types for updating favorite photos and toggling the modal
 const ACTIONS = {
   UPDATE_FAV_PHOTOS: 'UPDATE_FAV_PHOTOS',
-  TOGGLE_MODAL: 'TOGGLE_MODAL',
+  TOGGLE_MODAL: 'TOGGLE_MODAL', // opens or closes modal
   SET_PHOTO_DATA: 'SET_PHOTO_DATA',
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
@@ -61,7 +61,7 @@ const useApplicationData = () => {
    // Initialize state and dispatch function using useReducer
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  
+  // Make GET request to get photos from the API
   const fetchPhotos = () => {
     fetch('/api/photos').then(response => response.json())
     .then((photoData) => {
@@ -98,6 +98,7 @@ const useApplicationData = () => {
       .catch((error) => {
         console.error('Error:', error);
       });
+      // if there is no active topic (clicking on logo) - render all photos
     } else {
      fetchPhotos();
     }
