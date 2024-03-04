@@ -7,7 +7,7 @@ Home page with favorite photos notification
 
 
 Photos filtered by Nature category
-!["Photos filtered by Nature category"](docs/active-topic.png)
+!["Photos filtered by Nature category"](docs/active_topic.png)
 
 Modal with clicked photo details 
 !["Modal with clicked photo details"](docs/modal.png)
