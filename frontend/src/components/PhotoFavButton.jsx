@@ -3,7 +3,8 @@ import React from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ photo, photoId, favPhotos, updateFavPhotos }) {
+function PhotoFavButton({ photo, favPhotos, updateFavPhotos }) {
+  const photoId = photo.id;
   const selected = favPhotos.find(photo => photo.id === photoId)
  
   return (

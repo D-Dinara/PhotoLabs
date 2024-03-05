@@ -21,7 +21,6 @@ const PhotoListItem = (props) => {
   return (
     <div className="photo-list__item">
       <PhotoFavButton 
-        photoId={id} 
         photo={props.photo}
         updateFavPhotos={props.updateFavPhotos} 
         favPhotos={props.favPhotos} 
