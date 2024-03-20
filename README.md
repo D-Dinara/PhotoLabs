@@ -15,14 +15,17 @@ Modal with clicked photo details
 Modal with similar photos view
 !["Modal with clicked photo details"](docs/modal_similar_photos.png)
 
+Favorite photos page
+!["Favorite photos page"](docs/favorite_photos.png)
 
 ## Features
-* A user can view photos from the homepage loaded from the API
-* The user can navigate to different photo categories
-* The user can click on PhotoLabs logo to view all photos 
-* The user can click on a photo to view a larger version of the photo and relevant / similar photos
-* The user can like a photo from anywhere within the application where the photo is displayed
-* The user can view a heart icon with a notification in the navigation if there are liked photos
+* Users can view photos from the homepage loaded from the API.
+* Users can navigate to different photo categories.
+* Users can click on the PhotoLabs logo to view all photos.
+* Users can click on a photo to view a larger version of the photo and relevant/similar photos.
+* Users can like a photo from anywhere within the application where the photo is displayed.
+* Users can view a heart icon with a notification in the navigation if there are liked photos.
+* Users can click the heart icon in the navigation to see all the liked photos.
 
 ## Setup
 
