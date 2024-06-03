@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import './App.scss';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
 import FavoritePhotos from 'routes/FavoritePhotos';
+export const contextProvider = createContext();
 
 
 // Note: Rendering a single component to build components in isolation
@@ -13,7 +14,20 @@ const App = () => {
 
   return (
     <div className="App">
-      {displayFavPhotos ?
+      <contextProvider.Provider value={{ 
+        state, 
+        updateFavPhotos, 
+        toggleModal, 
+        getPhotosByTopic, 
+        showFavPhotos, 
+        photoData, 
+        topicData, 
+        activeTopic, 
+        favPhotos, 
+        displayModal, 
+        displayFavPhotos 
+      }}>
+        {displayFavPhotos ?
       <FavoritePhotos
         topics={topicData} 
         activeTopic={activeTopic}
@@ -40,7 +54,7 @@ const App = () => {
         displayModal={displayModal} 
         toggleModal={toggleModal} 
       />}
-      
+      </contextProvider.Provider>
     </div>
   );
 };
