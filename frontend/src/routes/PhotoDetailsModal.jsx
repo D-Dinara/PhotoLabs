@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
+import { contextProvider } from 'App';
 
 
-const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleModal }) => {
-  
+const PhotoDetailsModal = () => {
+  const { displayModal, toggleModal } = useContext(contextProvider);
   const { urls, location, user, similar_photos } = displayModal.photoDetails || {};
 
   // Create an array of similar photos
@@ -25,11 +26,7 @@ const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleMod
       </button>
       <div className="photo-details-modal__top-bar">
         <div>
-          <PhotoFavButton 
-            updateFavPhotos={updateFavPhotos} 
-            favPhotos={favPhotos} 
-            photo={displayModal.photoDetails}
-          />
+          <PhotoFavButton photo={displayModal.photoDetails} />
           <img src={urls.full} alt="Photo" className="photo-details-modal__image" />
           <div className="photo-details-modal__photographer-details">
             <img src={user.profile} alt="Profile" className="photo-details-modal__photographer-profile"/>
@@ -40,11 +37,7 @@ const PhotoDetailsModal = ({ favPhotos, updateFavPhotos, displayModal, toggleMod
           </div>
           <h2 className='photo-details-modal__header'>Similar Photos</h2>
           <div className='photo-details-modal__top-bar'>
-            <PhotoList 
-              photos={photos} 
-              favPhotos={favPhotos} 
-              updateFavPhotos={updateFavPhotos} 
-            />
+            <PhotoList photos={photos} />
           </div>
         </div> 
       </div>

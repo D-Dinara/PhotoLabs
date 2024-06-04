@@ -28,28 +28,10 @@ const App = () => {
         displayFavPhotos 
       }}>
         {displayFavPhotos ?
-      <FavoritePhotos
-        topics={topicData} 
-        activeTopic={activeTopic}
-        favPhotos={favPhotos} 
-        updateFavPhotos={updateFavPhotos}
-        toggleModal={toggleModal} 
-        getPhotosByTopic={getPhotosByTopic}
-        showFavPhotos={showFavPhotos}
-      /> :
-      <HomeRoute 
-        photos={photoData} 
-        favPhotos={favPhotos} 
-        updateFavPhotos={updateFavPhotos}
-        toggleModal={toggleModal} 
-      /> }
-      {displayModal.showModal && 
-      <PhotoDetailsModal 
-        favPhotos={favPhotos}
-        updateFavPhotos={updateFavPhotos}
-        displayModal={displayModal} 
-        toggleModal={toggleModal} 
-      />}
+        <FavoritePhotos /> :
+        <HomeRoute /> }
+        {displayModal.showModal && 
+        <PhotoDetailsModal />}
       </contextProvider.Provider>
     </div>
   );
