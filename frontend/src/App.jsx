@@ -38,14 +38,10 @@ const App = () => {
         showFavPhotos={showFavPhotos}
       /> :
       <HomeRoute 
-        topics={topicData} 
-        activeTopic={activeTopic}
         photos={photoData} 
         favPhotos={favPhotos} 
         updateFavPhotos={updateFavPhotos}
         toggleModal={toggleModal} 
-        getPhotosByTopic={getPhotosByTopic}
-        showFavPhotos={showFavPhotos}
       /> }
       {displayModal.showModal && 
       <PhotoDetailsModal 

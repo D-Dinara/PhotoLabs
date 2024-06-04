@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
+import { contextProvider } from 'App';
 
-const TopNavigation = ({ topics, activeTopic, favPhotos, getPhotosByTopic, showFavPhotos }) => {
+const TopNavigation = () => {
+  const { getPhotosByTopic } = useContext(contextProvider);
 
    return (
     <div className="top-nav-bar">
       <span onClick={() => getPhotosByTopic(null)} className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics} activeTopic={activeTopic} getPhotosByTopic={getPhotosByTopic} />
-      <FavBadge showFavPhotos={showFavPhotos} isFavPhotoExist={favPhotos.length} />
+      <TopicList />
+      <FavBadge />
     </div>
   )
 }
