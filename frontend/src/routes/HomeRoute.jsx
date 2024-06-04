@@ -1,26 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
+import { contextProvider } from 'App';
 
-const HomeRoute = ({ topics, activeTopic, photos, favPhotos, updateFavPhotos, toggleModal, getPhotosByTopic, showFavPhotos}) => {
-
+const HomeRoute = () => {
+  const { photoData } = useContext(contextProvider);
 
   return (
     <div className="home-route">
-      <TopNavigation 
-        topics={topics} 
-        activeTopic={activeTopic}
-        favPhotos={favPhotos} 
-        getPhotosByTopic={getPhotosByTopic}
-        showFavPhotos={showFavPhotos}
-      />
-      <PhotoList 
-        photos={photos} 
-        favPhotos={favPhotos} 
-        updateFavPhotos={updateFavPhotos}
-        toggleModal={toggleModal} 
-      />
+      <TopNavigation />
+      <PhotoList photos={photoData} />
     </div>
   );
 };

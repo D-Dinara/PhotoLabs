@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
+import { contextProvider } from 'App';
 
-const FavBadge = ({ isFavPhotoExist, showFavPhotos }) => {
-  
+const FavBadge = () => {
+  const { showFavPhotos, favPhotos } = useContext(contextProvider);
+
   return (
     <div onClick={() => showFavPhotos()} className='fav-badge'>
-      <FavIcon selected={!!isFavPhotoExist} displayAlert={!!isFavPhotoExist}/>
+      <FavIcon selected={!!favPhotos.length} displayAlert={!!favPhotos.length}/>
     </div>
   ) 
 };

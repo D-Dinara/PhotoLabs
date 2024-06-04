@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from './PhotoListItem';
+import { contextProvider } from "App";
 
-const PhotoList = ({ photos, favPhotos, updateFavPhotos, toggleModal }) => {
-  
+const PhotoList = ({ photos }) => {
+
   return (
     <ul className="photo-list">
       {photos.map((photo) => 
         <PhotoListItem 
           key={photo.id} 
           photo={photo} 
-          favPhotos={favPhotos} 
-          updateFavPhotos={updateFavPhotos} 
-          toggleModal={toggleModal} 
         />
       )}
     </ul>

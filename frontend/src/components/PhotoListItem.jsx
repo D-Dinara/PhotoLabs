@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+import { contextProvider } from "App";
 
 const PhotoListItem = (props) => {
+  const { toggleModal } = useContext(contextProvider);
   const { urls, id, location, user, similar_photos } = props.photo;
   const photoDetails = {
     id: id,
@@ -14,17 +16,13 @@ const PhotoListItem = (props) => {
 
   // Function to display modal. Sets state of displayModal: sets showModal to true and provides photo details.
   const showModal = () => {
-    props.toggleModal(true, photoDetails);
+    toggleModal(true, photoDetails);
   }
 
   
   return (
     <div className="photo-list__item">
-      <PhotoFavButton 
-        photo={props.photo}
-        updateFavPhotos={props.updateFavPhotos} 
-        favPhotos={props.favPhotos} 
-      />
+      <PhotoFavButton photo={props.photo} />
       <img onClick={showModal} src={urls.regular} alt="Photo" className="photo-list__image" />
     
       <div className="photo-list__user-details">
