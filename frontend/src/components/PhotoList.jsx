@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from './PhotoListItem';
-import { contextProvider } from "App";
 
 const PhotoList = ({ photos }) => {
 

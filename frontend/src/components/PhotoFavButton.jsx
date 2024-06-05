@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import { contextProvider } from 'App';
+import Context from 'Context';
 
 function PhotoFavButton({ photo }) {
-  const { favPhotos, updateFavPhotos } = useContext(contextProvider);
+  const { favPhotos, updateFavPhotos } = useContext(Context);
 
   const photoId = photo.id;
   const selected = favPhotos.find(photo => photo.id === photoId)

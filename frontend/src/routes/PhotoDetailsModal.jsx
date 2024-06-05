@@ -3,11 +3,10 @@ import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from 'components/PhotoFavButton';
-import { contextProvider } from 'App';
-
+import Context from 'Context';
 
 const PhotoDetailsModal = () => {
-  const { displayModal, toggleModal } = useContext(contextProvider);
+  const { displayModal, toggleModal } = useContext(Context);
   const { urls, location, user, similar_photos } = displayModal.photoDetails || {};
 
   // Create an array of similar photos

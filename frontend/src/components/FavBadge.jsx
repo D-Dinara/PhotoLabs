@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/FavBadge.scss';
-import { contextProvider } from 'App';
+import Context from 'Context';
 
 const FavBadge = () => {
-  const { showFavPhotos, favPhotos } = useContext(contextProvider);
+  const { showFavPhotos, favPhotos } = useContext(Context);
 
   return (
     <div onClick={() => showFavPhotos()} className='fav-badge'>

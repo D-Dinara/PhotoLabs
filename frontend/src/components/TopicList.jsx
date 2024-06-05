@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-import { contextProvider } from "App";
+import Context from "Context";
 
 const TopicList = () => {
-  const { topicData } = useContext(contextProvider);
+  const { topicData } = useContext(Context);
 
   return (
     <div className="top-nav-bar__topic-list">

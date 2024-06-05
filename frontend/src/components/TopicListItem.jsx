@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "../styles/TopicListItem.scss";
-import { contextProvider } from "App";
+import Context from "Context";
 
 const TopicListItem = ({topic, topicId }) => {
-  const { activeTopic, getPhotosByTopic } = useContext(contextProvider);
+  const { activeTopic, getPhotosByTopic } = useContext(Context);
 
   const activeTopicBackground = activeTopic === topicId ? "topic-list__item-active" : "";
   

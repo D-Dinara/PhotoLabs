@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import '../styles/TopNavigationBar.scss'
 import TopicList from './TopicList';
 import FavBadge from './FavBadge';
-import { contextProvider } from 'App';
+import Context from 'Context';
 
 const TopNavigation = () => {
-  const { getPhotosByTopic } = useContext(contextProvider);
+  const { getPhotosByTopic } = useContext(Context);
 
    return (
     <div className="top-nav-bar">

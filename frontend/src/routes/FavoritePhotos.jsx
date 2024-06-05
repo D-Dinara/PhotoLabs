@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import '../styles/FavoritePhotos.scss';
 import PhotoList from 'components/PhotoList';
 import TopNavigation from 'components/TopNavigationBar';
-import { contextProvider } from 'App';
+import Context from 'Context';
 
 const FavoritePhotos = () => {
-  const { favPhotos } = useContext(contextProvider);
+  const { favPhotos } = useContext(Context);
 
   return (
     <div className="favorite-photos">

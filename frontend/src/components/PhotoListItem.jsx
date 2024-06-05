@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
-import { contextProvider } from "App";
+import Context from "Context";
 
 const PhotoListItem = (props) => {
-  const { toggleModal } = useContext(contextProvider);
+  const { toggleModal } = useContext(Context);
   const { urls, id, location, user, similar_photos } = props.photo;
   const photoDetails = {
     id: id,

@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import '../styles/HomeRoute.scss';
 import TopNavigation from 'components/TopNavigationBar';
 import PhotoList from 'components/PhotoList';
-import { contextProvider } from 'App';
+import Context from 'Context';
 
 const HomeRoute = () => {
-  const { photoData } = useContext(contextProvider);
+  const { photoData } = useContext(Context);
 
   return (
     <div className="home-route">
